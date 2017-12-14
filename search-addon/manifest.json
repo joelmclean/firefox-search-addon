@@ -1,0 +1,36 @@
+{
+
+  "manifest_version": 2,
+  "name": "Search Addon with KeyMarks",
+  "version": "0.0.1",
+
+  "description": "An addon that allows the creation of custom search engines, using the old KeyMark implementation originally introduced by Firefox, circa version 12. This addon will allow for custom keymarks and search engines.",
+  "homepage_url": "https://github.com/joelmclean/firefox-search-addon/",
+  
+  "icons": {
+    "48": "icons/search-engine-icon-48.png",
+    "96": "icons/search-engine-icon-96.png"
+  },
+
+  "permissions": [
+    "activeTab"
+  ],
+
+  "applications": {
+    "gecko": {
+      "id": "search-addon@websurgeons.com.au",
+      "update_url": "https://raw.githubusercontent.com/joelmclean/firefox-search-addon/master/updates.json"
+    }
+  },
+
+  "browser_action": {
+    "default_icon": "icons/search-engine-icon-96.png",
+    "default_title": "Search Addon Customiser",
+    "default_popup": "html/search-addon.html"
+  },
+
+  "web_accessible_resources": [
+    "img/img.jpg"
+  ]
+
+}
