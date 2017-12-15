@@ -67,11 +67,11 @@ function findURL(text){
 	var  queryParts = [];
 
 
-  parts.forEach(part => {
-    if (parts.indexOf(part) != 0) {
-      queryParts.push(part);
-    }
-  });
+	parts.forEach(part => {
+		if (parts.indexOf(part) != 0) {
+			queryParts.push(part);
+		}
+	});
 
 	query = queryParts.join(' ');
 	console.log(queryParts);
@@ -97,20 +97,20 @@ function findSearchEnginePrefix(searchEngText){
 		return 'https://www.youtube.com/results?search_query=';
 	}
 	else if(searchEngText == 't'){
-                return 'https://twitter.com/search?q=';
-        }
+        return 'https://twitter.com/search?q=';
+    }
 	else if(searchEngText == 'gh'){
-                return 'https://github.com/search?q=';
-        }
+        return 'https://github.com/search?q=';
+    }
 	else if(searchEngText == 'ya'){
-                return 'https://www.yandex.com/search/?text=';
-        }
+        return 'https://www.yandex.com/search/?text=';
+    }
 	else if(searchEngText == 'wp'){
-                return 'https://en.search.wordpress.com/?src=organic&q=';
-        }
+        return 'https://en.search.wordpress.com/?src=organic&q=';
+    }
 	else if(searchEngText == 'a'){
-                return 'https://www.amazon.com/s/field-keywords=';
-        }
+        return 'https://www.amazon.com/s/field-keywords=';
+    }
 	else if(searchEngText == 's'){
 		return 'https://stackoverflow.com/search?q=';
 	}
@@ -120,7 +120,7 @@ function findSearchEnginePrefix(searchEngText){
 	else if(searchEngText == 'w'){
 		return 'http://kickstart.micron21.com/tools/whois.php?host=';
 	}
-	else if(searchEngText == 'd')
+	else if(searchEngText == 'd'){
 		return 'http://kickstart.micron21.com/tools/dig.php?host=';
 	}
 	return '';
@@ -214,7 +214,7 @@ function findSearchName(searchEngText){
 	else if(searchEngText == 'w'){
 		return 'whois';
 	}
-	else if(searchEngText == 'w'){
+	else if(searchEngText == 'd'){
 		return 'dig';
 	}
         return '';
