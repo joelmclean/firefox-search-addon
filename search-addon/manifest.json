@@ -23,6 +23,10 @@
     }
   },
 
+  "omnibox": {
+	"keyword": "."
+  },
+
   "browser_action": {
     "default_icon": "icons/search-engine-icon-96.png",
     "default_title": "Search Addon Customiser",
