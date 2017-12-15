@@ -52,14 +52,18 @@ browser.omnibox.onInputEntered.addListener(function(text) {
 function findURL(text){
 	var parts = text.split(" ");
 	var partOne = parts[0];
-	var searchURL = findSearchEngin(partOne);
+	var searchURLprefix = findSearchEnginePrefix(partOne);
+	var searchURLsuffix = findSearchEngineSuffix(partOne);
 
-
-	console.log("Search URL"+searchURL);
-	if(searchURL == ''){
+	console.log("Search URL "+searchURLprefix);
+	if(searchURLprefix == ''){
 		return '';
 	}
-	console.log(searchURL);
+	if(searchURLsuffix == ''){
+		return '';
+	}
+	console.log(searchURLprefix);
+	console.log(searchURLsuffix);
 	var  queryParts = [];
 
 
@@ -70,16 +74,14 @@ function findURL(text){
   });
 
 	query = queryParts.join(' ');
-		
 	console.log(queryParts);
-
 	
-	return searchURL+query;
+	return searchURLprefix+query+searchURLsuffix;
 }
 
-function findSearchEngin(searchEngText){
+function findSearchEnginePrefix(searchEngText){
 	
-	if(searchEngText == 'w'){
+	if(searchEngText == 'wiki'){
 		return 'https://wikipedia.org/wiki/Search?search=';
 	}
 	else if(searchEngText == 'g'){
@@ -88,7 +90,7 @@ function findSearchEngin(searchEngText){
 	else if(searchEngText == 'b'){
 		return 'http://www.bing.com/search?q=';
 	}
-	else if(searchEngText == 'd'){
+	else if(searchEngText == 'duck'){
 		return 'https://duckduckgo.com/?q=';
 	}
 	else if(searchEngText == 'y'){
@@ -110,14 +112,70 @@ function findSearchEngin(searchEngText){
                 return 'https://www.amazon.com/s/field-keywords=';
         }
 	else if(searchEngText == 's'){
-		return 'http://stackoverflow.com/search';
+		return 'https://stackoverflow.com/search?q=';
+	}
+	else if(searchEngText == 'abn'){
+		return 'https://www.abr.business.gov.au/SearchByAbn.aspx?SearchText=';
+	}
+	else if(searchEngText == 'w'){
+		return 'http://kickstart.micron21.com/tools/whois.php?host=';
+	}
+	else if(searchEngText == 'd')
+		return 'http://kickstart.micron21.com/tools/dig.php?host=';
+	}
+	return '';
+}
+
+function findSearchEngineSuffix(searchEngText){
+	
+	if(searchEngText == 'wiki'){
+		return '';
+	}
+	else if(searchEngText == 'g'){
+		return '';
+	}
+	else if(searchEngText == 'b'){
+		return '';
+	}
+	else if(searchEngText == 'duck'){
+		return '';
+	}
+	else if(searchEngText == 'y'){
+		return '';
+	}
+	else if(searchEngText == 't'){
+                return '';
+        }
+	else if(searchEngText == 'gh'){
+                return '';
+        }
+	else if(searchEngText == 'ya'){
+                return '';
+        }
+	else if(searchEngText == 'wp'){
+                return '';
+        }
+	else if(searchEngText == 'a'){
+                return '';
+        }
+	else if(searchEngText == 's'){
+		return '';
+	}
+	else if(searchEngText == 'abn'){
+		return '';
+	}
+	else if(searchEngText == 'w'){
+		return '&server=default';
+	}
+	else if(searchEngText == 'd'){
+		return '&record=any';
 	}
 	return '';
 }
 
 function findSearchName(searchEngText){
 
-        if(searchEngText == 'w'){
+        if(searchEngText == 'wiki'){
                 return 'wiki';
         }
         else if(searchEngText == 'g'){
@@ -126,7 +184,7 @@ function findSearchName(searchEngText){
         else if(searchEngText == 'b'){
                 return 'bing';
         }
-        else if(searchEngText == 'd'){
+        else if(searchEngText == 'duck'){
                 return 'duckduckgo';
         }
         else if(searchEngText == 'y'){
@@ -150,6 +208,15 @@ function findSearchName(searchEngText){
         else if(searchEngText == 's'){
                 return 'stackoverflow';
         }
+	else if(searchEngText == 'abn'){
+		return 'business-search';
+	}
+	else if(searchEngText == 'w'){
+		return 'whois';
+	}
+	else if(searchEngText == 'w'){
+		return 'dig';
+	}
         return '';
 }
 
